@@ -28,6 +28,18 @@ public class CaesarCipher {
     }
     return encryptedString;
   }
+  public String encryptTwoKeys(String input, int key1, int key2){
+    String encryptedString = "";
+    for(int i = 0;i<input.length();i++){
+      char currentChar = input.charAt(i);
+      if(i%2 == 0){
+        encryptedString += encrypt(Character.toString(currentChar), key1);
+      }else{
+        encryptedString += encrypt(Character.toString(currentChar), key2);
+      }
+    }
+    return encryptedString;
+  }
 
   // testing methods
   public void testCaesar (){
@@ -39,9 +51,11 @@ public class CaesarCipher {
   }
   public static void main(String[] args) {
     CaesarCipher cc = new CaesarCipher();
-    System.out.println(cc.encrypt("FIRST LEGION ATTACK EAST FLANK!", 23));
-    System.out.println(cc.encrypt("First Legion", 17));
-    System.out.println(cc.encrypt("DEAR OWEN,", 23));
-    cc.testCaesar();
+    //System.out.println(cc.encrypt("FIRST LEGION ATTACK EAST FLANK!", 23));
+    //System.out.println(cc.encrypt("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 15));
+    //System.out.println(cc.encrypt("DEAR OWEN,", 23));
+    //cc.testCaesar();
+    //System.out.println("Encrypted with 2 keys = " + cc.encryptTwoKeys("First Legion", 23, 17));
+    System.out.println("Encrypted with 2 keys = " + cc.encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!",8,21));
   }
 }
