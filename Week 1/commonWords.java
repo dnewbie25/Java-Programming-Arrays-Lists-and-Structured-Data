@@ -1,10 +1,4 @@
-
-/**
- * Write a description of commonWords here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+// Finds the most common words among the files
 public class commonWords {
 
 }
