@@ -30,7 +30,7 @@ public class CaesarBreaker {
     }
 
     public String decrypt(String encrypted){
-        // decrypots the message having the E as the most common word of the English language
+        // decrypts the message having the E as the most common word of the English language
         CaesarCipher cc = new CaesarCipher();
         int[] frequentLetters = countLetters(encrypted);
         // the index of the letter with maximum repetitions on the encrypted message
@@ -54,6 +54,43 @@ public class CaesarBreaker {
         return newMessage;
     }
 
+    public int getKey(String s){
+        // returns the possible key based on which letter is the most repeated one
+        int[] letterFrequencies = countLetters(s);
+        int maxDex =  maxIndex(letterFrequencies);
+        // repeating the key calculation from the decrypt method from above
+        int decryptionKey = maxDex - 4;
+        if(maxDex < 4){
+            decryptionKey = 26 - (4-maxDex);
+        }
+        return decryptionKey;
+    }
+
+    public String decryptTwoKeys(String encrypted){
+        String decryptedMessage = "";
+        String evenCharacters = halfOfString(encrypted, 0);
+        int keyOfEvenChars = getKey(evenCharacters);
+        String oddCharacters = halfOfString(encrypted, 1);
+        int keyOfOddChars = getKey(oddCharacters);
+        System.out.println("even characters = " + evenCharacters);
+        System.out.println("odd characters = " + oddCharacters);
+        System.out.println("Key 1 = "+keyOfEvenChars+" & Key 2 = "+keyOfOddChars);
+        CaesarCipher cc =  new CaesarCipher();
+        int even = 0;
+        int odd = 0;
+        for(int i= 0;i<encrypted.length();i++){
+            if(even < evenCharacters.length()){
+                decryptedMessage += evenCharacters.charAt(even);
+                even += 1;
+            }
+            if(odd<oddCharacters.length()){
+                decryptedMessage += oddCharacters.charAt(odd);
+                odd += 1;
+            }
+        }
+        return cc.encryptTwoKeys(decryptedMessage, 26-keyOfEvenChars, 26-keyOfOddChars);
+    }
+
     // testing methods
     public String testCountLetters(){
         return Arrays.toString(countLetters("Abedae"));
@@ -67,5 +104,12 @@ public class CaesarBreaker {
         String message = cc.encrypt(phrase, 13);
         System.out.println("Encrypted message: \n\t"+message);
         System.out.println("Decrypted message: \n\t"+ decrypt(message));
+    }
+
+    public static void main(String[] args) {
+        CaesarBreaker cb = new CaesarBreaker();
+        FileResource fr = new FileResource();
+        String phrase = fr.asString();
+        System.out.println(cb.decryptTwoKeys(phrase));
     }
 }

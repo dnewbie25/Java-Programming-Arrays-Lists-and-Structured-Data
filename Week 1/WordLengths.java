@@ -36,4 +36,9 @@ public class WordLengths {
     countWordLengths(fr, counts);
     System.out.println(indexOfMax(counts));
   }
+
+  public static void main(String[] args) {
+    WordLengths wl = new WordLengths();
+    wl.testCountWordLengths();
+  }
 }

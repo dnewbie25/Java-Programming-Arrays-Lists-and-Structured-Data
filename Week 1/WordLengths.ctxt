@@ -6,4 +6,6 @@ comment2.params=values
 comment2.target=int\ indexOfMax(int[])
 comment3.params=
 comment3.target=void\ testCountWordLengths()
-numComments=4
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5
