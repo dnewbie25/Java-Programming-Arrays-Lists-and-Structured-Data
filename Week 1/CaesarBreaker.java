@@ -1,4 +1,5 @@
-// this class decreypts a message based on the statistical occurence of each word of the English alphabet
+// this class decrypts a message based on the statistical occurence of the letter E in the English alphabet
+// E is the most common word in English
 import java.util.Arrays;
 
 public class CaesarBreaker {
