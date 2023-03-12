@@ -7,6 +7,7 @@ public class WordLengths {
   public void countWordLengths (FileResource resource, int[] counts){
     for(String word: resource.words()){
       int wordLength = word.length();
+      System.out.println(word);
       if(Character.isLetter(word.charAt(0)) == false){
         wordLength -= 1;
       }
@@ -18,9 +19,26 @@ public class WordLengths {
     System.out.println(Arrays.toString(counts));
   }
 
+  public int indexOfMax(int[] values){
+    // returns the index of the word with most letter
+    int max = 0;
+    for(int i=0;i<values.length;i++){
+      if(values[i] > values[max]){
+        max = i;
+      }
+    }
+    return max;
+  }
+
   public void testCountWordLengths (){
     FileResource fr = new FileResource();
     int[] counts = new int[31];
     countWordLengths(fr, counts);
+    System.out.println(indexOfMax(counts));
+  }
+
+  public static void main(String[] args) {
+    WordLengths wl = new WordLengths();
+    wl.testCountWordLengths();
   }
 }

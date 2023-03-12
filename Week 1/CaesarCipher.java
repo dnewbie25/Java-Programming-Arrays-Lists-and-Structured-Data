@@ -57,5 +57,6 @@ public class CaesarCipher {
     //cc.testCaesar();
     //System.out.println("Encrypted with 2 keys = " + cc.encryptTwoKeys("First Legion", 23, 17));
     System.out.println("Encrypted with 2 keys = " + cc.encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!",8,21));
+    System.out.println("Encrypted with 2 keys = " + cc.encryptTwoKeys("Cartagena de Indias fue descubierta a inicios del siglo 19",4,11));
   }
 }
