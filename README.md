@@ -1,2 +1,2 @@
 # Java-Programming-Arrays-Lists-and-Structured-Data
-This repository belongs to the Java Specialization by Duke University
+This repository belongs to the Java Specialization by Duke University with refactoring of the code in branch *main* with an Object Oriented approach.
