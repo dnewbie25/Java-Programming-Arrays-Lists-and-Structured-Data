@@ -4,8 +4,8 @@ public class TestCaesarCipher {
   public void simpleTest(){
     FileResource fr = new FileResource();
     String fileStr = fr.asString();
-    CaesarCipher cc = new CaesarCipher(18);
-    String encryptedStr = cc.encrypt(fileStr);
+    CaesarCipher cc = new CaesarCipher(15);
+    String encryptedStr = cc.encrypt("Can you imagine life WITHOUT the internet AND computers in your pocket?");
     System.out.println("Encrypted message = " + encryptedStr);
     String decryptString = cc.decrypt(encryptedStr);
     System.out.println("Decrypted message = "+decryptString);

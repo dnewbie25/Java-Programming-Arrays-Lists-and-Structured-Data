@@ -28,7 +28,7 @@ public class CaesarCipher {
   
   public String decrypt(String input){
       // creates an instance of the caesar cipher with the reversed key to decrypt
-     CaesarCipher decryptCipher = new CaesarCipher(26 - mainKey);
-     return decryptCipher.encrypt(input);
+      CaesarCipher decryptCipher = new CaesarCipher(26 - mainKey);
+      return decryptCipher.encrypt(input);
   }
 }

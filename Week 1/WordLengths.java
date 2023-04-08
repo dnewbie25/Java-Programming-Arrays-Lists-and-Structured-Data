@@ -8,6 +8,10 @@ public class WordLengths {
     for(String word: resource.words()){
       int wordLength = word.length();
       System.out.println(word);
+      if(wordLength == 1){
+          counts[wordLength] += 1;
+          continue;
+      }
       if(Character.isLetter(word.charAt(0)) == false){
         wordLength -= 1;
       }
@@ -32,7 +36,7 @@ public class WordLengths {
 
   public void testCountWordLengths (){
     FileResource fr = new FileResource();
-    int[] counts = new int[31];
+    int[] counts = new int[100];
     countWordLengths(fr, counts);
     System.out.println(indexOfMax(counts));
   }
